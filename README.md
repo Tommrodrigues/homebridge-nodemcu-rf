@@ -15,6 +15,8 @@ homebridge-nodemcu-rf provides an Arduino script designed to be flashed onto a N
 
 * RF Transmitter module (Like [this](https://randomnerdtutorials.com/rf-433mhz-transmitter-receiver-module-with-arduino/) one)
 
+* Knowledge of the RF codes and pulse lengths required to activate your RF outlets.
+
 * [Pin Header Cables](https://learn.sparkfun.com/tutorials/connector-basics/pin-header-connectors) (To connect the NodeMCU to the relay module)
 
 * Micro-USB cable (for flashing and power)
