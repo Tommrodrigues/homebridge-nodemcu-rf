@@ -1,0 +1,52 @@
+{
+    "bridge": {
+        "name": "Homebridge",
+        "username": "CC:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "031-45-154"
+    },
+
+
+    "accessories": [
+
+    {
+      "accessory": "Http",
+      "name": "Light 1",
+      "on_url": "http://nodemcu.local/SWITCH-1=ON",
+      "off_url": "http://nodemcu.local/SWITCH-1=OFF",
+      "http_method": "GET"
+    },
+    {
+      "accessory": "Http",
+      "name": "Light 2",
+      "on_url": "http://nodemcu.local/SWITCH-2=ON",
+      "off_url": "http://nodemcu.local/SWITCH-2=OFF",
+      "http_method": "GET"
+    },
+    {
+      "accessory": "Http",
+      "name": "Light 3",
+      "on_url": "http://nodemcu.local/SWITCH-3=ON",
+      "off_url": "http://nodemcu.local/SWITCH-3=OFF",
+      "http_method": "GET"
+    },
+    {
+      "accessory": "Http",
+      "name": "Light 4",
+      "on_url": "http://nodemcu.local/SWITCH-4=ON",
+      "off_url": "http://nodemcu.local/SWITCH-4=OFF",
+      "http_method": "GET"
+    },
+    {
+      "accessory": "Http",
+      "name": "Light 5",
+      "on_url": "http://nodemcu.local/SWITCH-5=ON",
+      "off_url": "http://nodemcu.local/SWITCH-5=OFF",
+      "http_method": "GET"
+    }
+
+    ],
+
+    "platforms": [
+    ]
+}
