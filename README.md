@@ -71,6 +71,8 @@ sudo npm install -g homebridge-http
 
 ## Wiring
 
+![Diagram](https://image.ibb.co/gN9e19/RF-Diagram.jpg)
+
 ## Usage
 
 As shown in the example `config.json` file above, HTTP requests must follow this example format: `http://nodemcu.local/CODE-10176012/PULSE-172`. I.e. `http://<IP address of NodeMCU>/CODE-<RF Code (8-bit)>/PULSE-<RF Pulse Length>`
