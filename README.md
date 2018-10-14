@@ -25,7 +25,7 @@ homebridge-nodemcu-rf provides an Arduino script designed to be flashed onto a N
 
 ## How-to
 
-1. First, follow [this](https://gist.github.com/Tommrodrigues/8d9d3b886936ccea9c21f495755640dd) gist which walks you through how to flash a NodeMCU using the Arduino IDE. The `.ino` file reffered to is the `NodeMCU-RF.ino` file included in this repository.
+1. First, follow [this](https://gist.github.com/Tommrodrigues/8d9d3b886936ccea9c21f495755640dd) gist which walks you through how to flash a NodeMCU using the Arduino IDE with the addage that you must add the `rc-switch` library to the Arduino IDE for the script to work. The `.ino` file reffered to is the `NodeMCU-RF.ino` file included in this repository.
 
 2. Assuming that you already have [homebridge](https://github.com/nfarina/homebridge#installation) already set up, the next thing you will have to do is install the http plugin you wish to use. It is recommended that you use [homebridge-http](https://github.com/rudders/homebridge-http) due to its stability and wide usage. To install [homebridge-http](https://github.com/rudders/homebridge-http), use the command:
 ```
