@@ -75,7 +75,10 @@ sudo npm install -g homebridge-http
 
 ## Usage
 
-As shown in the example `config.json` file above, HTTP requests must follow this example format: `http://nodemcu.local/CODE-10176012/PULSE-172`. I.e. `http://<IP address of NodeMCU>/CODE-<RF Code (8-bit)>/PULSE-<RF Pulse Length>`
+As shown in the example `config.json` file above, HTTP requests must follow this example format: 
+```
+http://nodemcu.local/CODE-10176012/PULSE-172
+```
 
 You can test whether it is working by using the Terminal and typing: `curl http://nodemcu.local/CODE-10176012/PULSE-172`.
 This also means that you can integrate this with any command-based plugins by writing the command above.
