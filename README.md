@@ -35,36 +35,23 @@ sudo npm install -g homebridge-http
 3. Below is the example `config.json` file, showing just 2 switches,  which assumes that you want to use [homebridge-http](https://github.com/rudders/homebridge-http) to communicate with your NodeMCU. Make sure to change the appropriate `CODE` and `PULSE` values to match your outlets:
 
 ```json
-{
-    "bridge": {
-        "name": "Homebridge",
-        "username": "CC:22:3D:E3:CE:30",
-        "port": 51826,
-        "pin": "031-45-154"
+"accessories": [
+    {
+      "accessory": "Http",
+      "name": "Light 1",
+      "on_url": "http://nodemcu.local/CODE-10176012/PULSE-172",
+      "off_url": "http://nodemcu.local/CODE-10176009/PULSE-172",
+      "http_method": "GET"
     },
-   
-
-    "accessories": [
-        {
-          "accessory": "Http",
-          "name": "Light 1",
-          "on_url": "http://nodemcu.local/CODE-10176012/PULSE-172",
-          "off_url": "http://nodemcu.local/CODE-10176009/PULSE-172",
-          "http_method": "GET"
-        },
         
-        {
-          "accessory": "Http",
-          "name": "Light 2",
-          "on_url": "http://nodemcu.local/CODE-10176019/PULSE-172",
-          "off_url": "http://nodemcu.local/CODE-10176016/PULSE-172",
-          "http_method": "GET"
-        }
-    ],
-
-    "platforms": [
-    ]
-}
+    {
+      "accessory": "Http",
+      "name": "Light 2",
+      "on_url": "http://nodemcu.local/CODE-10176019/PULSE-172",
+      "off_url": "http://nodemcu.local/CODE-10176016/PULSE-172",
+      "http_method": "GET"
+    }
+]
 ```
 
 4. And that's it! You can add as many `accessories` as you want, making sure to change the appropriate values in each url
