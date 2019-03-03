@@ -58,7 +58,7 @@ sudo npm install -g homebridge-http
 
 ## Wiring
 
-![Diagram](https://image.ibb.co/gN9e19/RF-Diagram.jpg)
+![Diagram](https://i.ibb.co/DMvP5cB/RF-Diagram.jpg)
 
 ## Usage
 
