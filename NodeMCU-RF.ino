@@ -11,8 +11,6 @@ RCSwitch mySwitch = RCSwitch();
 // Make sure to add "rc-switch" in the ArduinoIDE "Sketch" area
 // HTTP requests must follow this example format: http://192.168.1.176/CODE-10176012/PULSE-172
 
-
-// |NodeMCU Pin| = |Transmitter Pin|
 // D3 = Transmitter Data Pin
 // VIN = Transmitter VCC (Power) pin
 // GND = Transmitter Ground
@@ -98,6 +96,11 @@ void loop() {
   Serial.println(request);
   client.flush();
 
+  // Return the response
+  client.println("HTTP/1.1 200 OK");
+  client.println("Content-Type: text/html");
+  client.println("");
+
   // Match the request
   if (request.indexOf("/CODE") != -1)  {
    codeString = "";
@@ -123,11 +126,6 @@ void loop() {
    Serial.println(repeatNumber);
    Serial.println("");
   }
-
-  // Return the response
-  client.println("HTTP/1.1 200 OK");
-  client.println("Content-Type: text/html");
-  client.println("");
 
   delay(1);
   Serial.println("Client disonnected");
