@@ -6,11 +6,6 @@ RCSwitch mySwitch = RCSwitch();
 
 // GitHub Page = https://github.com/Tommrodrigues/homebridge-nodemcu-rf
 
-// Script Type = NodeMCU RF transmitter
-
-// Make sure to add "rc-switch" in the ArduinoIDE "Sketch" area
-// HTTP requests must follow this example format: http://192.168.1.176/CODE-10176012/PULSE-172
-
 // D3 = Transmitter Data Pin
 // VIN = Transmitter VCC (Power) pin
 // GND = Transmitter Ground
@@ -34,7 +29,6 @@ int rfPulse;
 void setup() {
   Serial.begin(115200);
   delay(10);
-
 
   pinMode(redPin, OUTPUT);
   digitalWrite(redPin, LOW);
@@ -87,7 +81,7 @@ void loop() {
 
   // Wait until the client sends some data
   Serial.println("New client");
-  while(!client.available()){
+  while (!client.available()) {
     delay(1);
   }
 
@@ -102,29 +96,29 @@ void loop() {
   client.println("");
 
   // Match the request
-  if (request.indexOf("/CODE") != -1)  {
-   codeString = "";
-   codeString = (request.substring(10,19));
-   rfCode = codeString.toInt();
+  if (request.indexOf("/CODE") != -1) {
+    codeString = "";
+    codeString = (request.substring(10, 19));
+    rfCode = codeString.toInt();
 
-   pulseString = "";
-   pulseString = (request.substring(25));
-   rfPulse = pulseString.toInt();
+    pulseString = "";
+    pulseString = (request.substring(25));
+    rfPulse = pulseString.toInt();
 
-   mySwitch.setProtocol(1);
-   mySwitch.setPulseLength(rfPulse);
-   mySwitch.setRepeatTransmit(repeatNumber);
-   mySwitch.send(rfCode, 24);
+    mySwitch.setProtocol(1);
+    mySwitch.setPulseLength(rfPulse);
+    mySwitch.setRepeatTransmit(repeatNumber);
+    mySwitch.send(rfCode, 24);
 
-   Serial.println("");
-   Serial.println("RF transmission succeeded!");
-   Serial.print("Code: ");
-   Serial.println(rfCode);
-   Serial.print("Pulse: ");
-   Serial.println(rfPulse);
-   Serial.print("Repeats: ");
-   Serial.println(repeatNumber);
-   Serial.println("");
+    Serial.println("");
+    Serial.println("RF transmission succeeded!");
+    Serial.print("Code: ");
+    Serial.println(rfCode);
+    Serial.print("Pulse: ");
+    Serial.println(rfPulse);
+    Serial.print("Repeats: ");
+    Serial.println(repeatNumber);
+    Serial.println("");
   }
 
   delay(1);
