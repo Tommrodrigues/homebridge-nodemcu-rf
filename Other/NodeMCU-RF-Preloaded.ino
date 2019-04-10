@@ -1,5 +1,4 @@
 #include <ESP8266WiFi.h>
-#include <ESP8266mDNS.h>
 #include <RCSwitch.h>
 
 RCSwitch mySwitch = RCSwitch();
@@ -82,12 +81,6 @@ void setup() {
   Serial.print("http://");
   Serial.print(WiFi.localIP());
   Serial.println("/");
-
-  // Start the mDNS responder for nodemcu.local
-  if (!MDNS.begin("nodemcu")) {
-    Serial.println("Error setting up MDNS responder!");
-  }
-  Serial.println("mDNS responder started");
 
   digitalWrite(redPin, HIGH);
 
