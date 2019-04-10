@@ -39,20 +39,21 @@ sudo npm install -g homebridge-http
     {
       "accessory": "Http",
       "name": "Light 1",
-      "on_url": "http://nodemcu.local/CODE-10176012/PULSE-172",
-      "off_url": "http://nodemcu.local/CODE-10176009/PULSE-172",
+      "on_url": "http://IP_ADDRESS/CODE-10176012/PULSE-172",
+      "off_url": "http://IP_ADDRESS/CODE-10176009/PULSE-172",
       "http_method": "GET"
     },
         
     {
       "accessory": "Http",
       "name": "Light 2",
-      "on_url": "http://nodemcu.local/CODE-10176019/PULSE-172",
-      "off_url": "http://nodemcu.local/CODE-10176016/PULSE-172",
+      "on_url": "http://IP_ADDRESS/CODE-10176019/PULSE-172",
+      "off_url": "http://IP_ADDRESS/CODE-10176016/PULSE-172",
       "http_method": "GET"
     }
 ]
 ```
+Simply change the `name` to your choosing and then change `IP_ADDRESS` to the IP address of the NodeMCU.
 
 4. And that's it! You can add as many `accessories` as you want, making sure to change the appropriate values in each url
 
@@ -64,8 +65,8 @@ sudo npm install -g homebridge-http
 
 As shown in the example `config.json` file above, HTTP requests must follow this example format: 
 ```
-http://nodemcu.local/CODE-10176012/PULSE-172
+http://IP_ADDRESS/CODE-10176012/PULSE-172
 ```
 
-You can test whether it is working by using the Terminal and typing: `curl http://nodemcu.local/CODE-10176012/PULSE-172`.
+You can test whether it is working by using the Terminal and typing: `curl http://IP_ADDRESS/CODE-10176012/PULSE-172`.
 This also means that you can integrate this with any command-based plugins by writing the command above.
