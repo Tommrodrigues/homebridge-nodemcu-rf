@@ -19,8 +19,7 @@ const int repeatNumber = 7; //Number of "Codesends". (Leave it at 7 for default)
 const int redPin = 16;
 WiFiServer server(80);
 
-int rfCode;
-int rfPulse;
+int rfCode, rfPulse;
 
 void setup() {
   Serial.begin(115200);
