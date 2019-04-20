@@ -19,9 +19,6 @@ const int repeatNumber = 7; //Number of "Codesends". (Leave it at 7 for default)
 const int redPin = 16;
 WiFiServer server(80);
 
-String codeString;
-String pulseString;
-
 int rfCode;
 int rfPulse;
 
@@ -86,13 +83,8 @@ void loop() {
 
   // Match the request
   if (request.indexOf("/CODE") != -1) {
-    codeString = "";
-    codeString = (request.substring(10, 19));
-    rfCode = codeString.toInt();
-
-    pulseString = "";
-    pulseString = (request.substring(25));
-    rfPulse = pulseString.toInt();
+    rfCode = request.substring(10, 19).toInt();
+    rfPulse = request.substring(25).toInt();
 
     mySwitch.setProtocol(1);
     mySwitch.setPulseLength(rfPulse);
