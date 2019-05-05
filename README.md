@@ -1,13 +1,10 @@
 # homebridge-nodemcu-rf
-#### Control RF outlets with Siri using homebridge and a NodeMCU
 
-## What is it?
+![GitHub last commit](https://img.shields.io/github/last-commit/Tommrodrigues/homebridge-nodemcu-rf.svg) ![GitHub issues](https://img.shields.io/github/issues/Tommrodrigues/homebridge-nodemcu-rf.svg)
 
-homebridge-nodemcu-rf allows for the cheap and easy control of an RF transmitter with a NodeMCU via [homebridge](https://github.com/nfarina/homebridge).
+## Description
 
-## How does it work?
-
-homebridge-nodemcu-rf provides an Arduino script designed to be flashed onto a NodeMCU. The script allows you to call the NodeMCU to emit an RF code over your home Wi-fi. This can be useful if you need to cover a large area or struggle with RF reception. After successful flashing, you will be able to quickly and simply integrate it into your pre-existing homebridge setup with the use of an http plugin such as [homebridge-http](https://github.com/rudders/homebridge-http).
+This script interfaces with a [homebridge](https://github.com/nfarina/homebridge) plugin to expose an RF devices to Apple's [HomeKit](http://www.apple.com/ios/home/), bringing smart-home capability to 'dumb' devices.
 
 ## Requirements
 
