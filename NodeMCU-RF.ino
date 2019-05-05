@@ -1,4 +1,5 @@
 #include <ESP8266WiFi.h>
+#include <ESP8266mDNS.h>
 #include <RCSwitch.h>
 
 RCSwitch mySwitch = RCSwitch();
@@ -12,6 +13,7 @@ RCSwitch mySwitch = RCSwitch();
 /////////////////// CHANGE THESE VALUES //////////////////////
 const char* ssid = "SSID"; //Name of your network
 const char* password = "PASSWORD"; //Password for your network
+const char* mdns = "rf"; //mDNS name
 //////////////////////////////////////////////////////////////
 
 const int repeatNumber = 7; //Number of "Codesends". (Leave it at 7 for default)
@@ -52,6 +54,11 @@ void setup() {
   // Print the IP address
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
+
+  if (!MDNS.begin(mdns)) {
+    Serial.println("Error setting up MDNS responder!");
+  }
+  Serial.println("mDNS address: http://" + String(mdns) + ".local");
 
   digitalWrite(redPin, HIGH);
 
