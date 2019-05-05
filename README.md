@@ -27,7 +27,7 @@ This script interfaces with a [homebridge](https://github.com/nfarina/homebridge
 npm install -g homebridge-http
 ```
 
-3. Finally, update your config.json file following the example below:
+3. Finally, update your `config.json` file following the example below, making sure to adapt it accordingly:
 
 ```json
 "accessories": [
