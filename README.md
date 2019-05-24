@@ -4,7 +4,7 @@
 
 ## Description
 
-This script interfaces with a [homebridge](https://github.com/nfarina/homebridge) plugin to expose an RF devices to Apple's [HomeKit](http://www.apple.com/ios/home/), adding smart-home functionality to 'dumb' devices.
+This script interfaces with [homebridge](https://github.com/nfarina/homebridge) to expose an RF devices to Apple's [HomeKit](http://www.apple.com/ios/home/), allowing you to integrate numerous devices into your smart home.
 
 ## Requirements
 
