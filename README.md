@@ -20,7 +20,7 @@ This script interfaces with [homebridge](https://github.com/nfarina/homebridge) 
 
 ## How-to
 
-1. First install the `rc-switch` library from the Library manager in the Arduino IDE then follow [this](https://gist.github.com/Tommrodrigues/8d9d3b886936ccea9c21f495755640dd) gist which walks you through how to flash a NodeMCU using the Arduino IDE. The `.ino` file reffered to is the `NodeMCU-RF.ino` file included in this repository.
+1. First install the `rc-switch` library from the Library manager in the Arduino IDE then follow [this](https://gist.github.com/Tommrodrigues/8d9d3b886936ccea9c21f495755640dd) gist which walks you through how to flash a NodeMCU using the Arduino IDE. The `.ino` file referred to is the `NodeMCU-RF.ino` file included in this repository.
 
 2. Assuming that you already have [homebridge](https://github.com/nfarina/homebridge#installation) set up, the next thing you will have to do is install [homebridge-http](https://github.com/rudders/homebridge-http) using the command:
 ```
