@@ -67,7 +67,7 @@ void setup() {
 void loop() {
 
   MDNS.update();
-  
+
   // Check if a client has connected
   WiFiClient client = server.available();
   if (!client) {
@@ -112,7 +112,7 @@ void loop() {
   }
 
   delay(1);
-  Serial.println("Client disonnected");
+  Serial.println("Client disconnected");
   Serial.println("");
 
 }
