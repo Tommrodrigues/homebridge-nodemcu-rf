@@ -18,7 +18,6 @@ const char* mdns = "rf"; //mDNS name
 
 const int repeatNumber = 7; //Number of "Codesends". (Leave it at 7 for default)
 
-const int redPin = 16;
 WiFiServer server(80);
 
 int rfCode, rfPulse;
@@ -27,9 +26,6 @@ void setup() {
   Serial.begin(115200);
   delay(10);
 
-  pinMode(redPin, OUTPUT);
-  digitalWrite(redPin, LOW);
-
   mySwitch.enableTransmit(0);
 
   // Connect to WiFi network
@@ -37,7 +33,7 @@ void setup() {
   Serial.println();
   Serial.println("Connecting to \"" + String(ssid) + "\"");
 
-  WiFi.softAPdisconnect(true);
+  WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
 
   int i = 0;
@@ -59,9 +55,6 @@ void setup() {
     Serial.println("Error setting up MDNS responder!");
   }
   Serial.println("mDNS address: " + String(mdns) + ".local");
-
-  digitalWrite(redPin, HIGH);
-
 }
 
 void loop() {
