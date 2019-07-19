@@ -34,8 +34,8 @@ npm install -g homebridge-http
     {
       "accessory": "Http",
       "name": "Outlet",
-      "on_url": "rf.local/CODE-10176012/PULSE-172",
-      "off_url": "rf.local/CODE-10176009/PULSE-172",
+      "on_url": "http://rf.local/CODE-10176012/PULSE-172",
+      "off_url": "http://rf.local/CODE-10176009/PULSE-172",
       "http_method": "GET"
     }
 ]
