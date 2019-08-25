@@ -12,7 +12,7 @@ This script interfaces with [homebridge](https://github.com/nfarina/homebridge) 
 
 * RF transmitter module
 
-* Knowledge of the necessary RF codes & pulse-lengths
+* Knowledge the RF codes (see [below](#notes))
 
 * Pin Header Cables
 
@@ -44,3 +44,7 @@ npm install -g homebridge-http
 ## Wiring
 
 ![Diagram](https://i.ibb.co/DMvP5cB/RF-Diagram.jpg)
+
+## Notes
+
+- To retrieve the RF codes, run [this](https://github.com/sui77/rc-switch/blob/master/examples/ReceiveDemo_Simple/ReceiveDemo_Simple.ino) script and with the reciever attached instead of the transmitter (follow same wiring as above). Then, simply press the outlet remote near the receiver and note down the codes.
