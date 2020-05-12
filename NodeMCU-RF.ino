@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
+#include <WiFiClient.h>
+#include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 #include <RCSwitch.h>
-
-RCSwitch mySwitch = RCSwitch();
 
 // GitHub Page = https://github.com/Tommrodrigues/homebridge-nodemcu-rf
 
@@ -16,11 +16,12 @@ const char* password = "PASSWORD"; //Password for your network
 const char* mdns = "rf"; //mDNS name
 //////////////////////////////////////////////////////////////
 
+int rfCode, rfPulse;
+
 const int repeatNumber = 7; //Number of "Codesends". (Leave it at 7 for default)
 
-WiFiServer server(80);
-
-int rfCode, rfPulse;
+RCSwitch mySwitch = RCSwitch();
+ESP8266WebServer server(80);
 
 void setup() {
   Serial.begin(115200);
@@ -44,9 +45,6 @@ void setup() {
   Serial.println();
   Serial.println("Connected successfully");
 
-  // Start the server
-  server.begin();
-
   // Print the IP address
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
@@ -55,57 +53,24 @@ void setup() {
     Serial.println("Error setting up MDNS responder!");
   }
   Serial.println("mDNS address: " + String(mdns) + ".local");
-}
 
-void loop() {
-
-  MDNS.update();
-
-  // Check if a client has connected
-  WiFiClient client = server.available();
-  if (!client) {
-    return;
-  }
-
-  // Wait until the client sends some data
-  Serial.println("New client");
-  while (!client.available()) {
-    delay(1);
-  }
-
-  // Read the first line of the request
-  String request = client.readStringUntil('\r');
-  Serial.println(request);
-  client.flush();
-
-  // Return the response
-  client.println("HTTP/1.1 200 OK");
-  client.println("Content-Type: text/html");
-  client.println("");
-
-  // Match the request
-  if (request.indexOf("/CODE") != -1) {
-    rfCode = request.substring(10, 19).toInt();
-    rfPulse = request.substring(25).toInt();
+  server.on("/setState", []() {
+    rfCode = server.arg("code").toInt();
+    rfPulse = server.arg("pulse").toInt();
 
     mySwitch.setProtocol(1);
     mySwitch.setPulseLength(rfPulse);
     mySwitch.setRepeatTransmit(repeatNumber);
     mySwitch.send(rfCode, 24);
 
-    Serial.println("");
-    Serial.println("RF transmission succeeded!");
-    Serial.print("Code: ");
-    Serial.println(rfCode);
-    Serial.print("Pulse: ");
-    Serial.println(rfPulse);
-    Serial.print("Repeats: ");
-    Serial.println(repeatNumber);
-    Serial.println("");
-  }
+    server.send(200);
+  });
 
-  delay(1);
-  Serial.println("Client disconnected");
-  Serial.println("");
+  // Start the server
+  server.begin();
+}
 
+void loop() {
+  server.handleClient();
+  MDNS.update();
 }
