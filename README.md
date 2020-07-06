@@ -1,9 +1,5 @@
 # homebridge-nodemcu-rf
 
-![GitHub last commit](https://img.shields.io/github/last-commit/Tommrodrigues/homebridge-nodemcu-rf.svg) ![GitHub issues](https://img.shields.io/github/issues/Tommrodrigues/homebridge-nodemcu-rf.svg)
-
-## Description
-
 This script interfaces with [homebridge](https://github.com/nfarina/homebridge) to expose an RF devices to Apple's [HomeKit](http://www.apple.com/ios/home/), allowing you to integrate numerous devices into your smart home.
 
 ## Requirements
